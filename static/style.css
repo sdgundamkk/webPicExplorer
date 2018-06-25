@@ -1,0 +1,8 @@
+.outerDiv{  
+      height:800px;  
+      width:500px;  
+      border:1px solid black;  
+      position:relative;  
+      overflow:hidden; 
+      float:left;
+}  

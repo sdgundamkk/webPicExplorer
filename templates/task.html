@@ -1,0 +1,31 @@
+{% extends "base.html" %}
+{% block task_content %}
+
+{% if userName == 'superadmin' %}
+<p><a href ="{{ url_for('add')}}">添加新任务</a></p>
+{% endif %}
+
+<table class="table table-striped">
+<thead>
+<tr>
+{% for detail in details %}
+<th>{{ detail }}</th>
+{% endfor %}
+</tr>
+</thead>
+
+<tbody>
+{% for date in dates %}
+<tr>
+{% for item in date %}
+{% if item%}
+<td>{{ item }}</td>
+{% else %}
+<td>{{ tt }}</td>
+{% endif %}
+{% endfor %}
+</tr>
+{% endfor %}
+</tbody>
+</table>
+{% endblock %}

@@ -1,0 +1,87 @@
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <link rel="icon" href="../../favicon.ico"></link>
+
+    <title>Signin pairwise</title>
+    <link href="https://cdn.bootcss.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"></link>
+    <link rel="stylesheet" type="text/css" href={{ url_for('static', filename='style.css') }}></link>
+    <script type="text/javascript" src="/static/jquery-2.1.4.min.js"></script>
+    <script type="text/javascript" src="/static/javascript.js"></script>
+</head>
+
+<body>
+	<nav class="navbar navbar-default navbar-static-top">
+	<div class="container-fluid">
+		<div class="col-md-10">
+			<h1>图像测评工具</h1>
+			<a href='/logout'>你好！{{userName}}，点击退出</a>
+		</div>
+		
+		<div class="col-md-2">
+    		<img id="westalgo" src={{ url_for('static', filename='westalgo.jpg') }} "></img>
+    	</div>
+	</div>
+	</nav>
+	
+	<div class = "container-fluid">
+	<div class = "row">
+	<div class="col-sm-1 col-md-1 sidebar">
+	    <ul class="nav nav-sidebar" id="tasklist">
+	    	<li class='active'><a>任务列表</a></li>
+	    	{% for task in tasks %}
+				<li><a>{{task}}</a></li>
+			{% endfor %}
+	    </ul> 
+	</div>
+	
+	<div id="dataid" d="{{path}}" style="display:none"></div>
+	
+	<div class = "container">
+	<h2 class="col-md-12" name="title">当前任务：{{title}}</h2>
+	<div id = "_outerDivA" class="outerDiv">  
+		<div id="_imageDivA" style="z-index:0; position:relative; top:0px; left:0px; width:400px; height:400px;">  
+			<img id="_imageObjA" src="{{pics}}"></img>  
+		</div>  
+	</div>   
+	<div id = "_outerDivB" class="outerDiv">  
+		<div id="_imageDivB" style="z-index:0; position:relative; top:0px; left:0px; width:400px; height:400px;">  
+			<img id="_imageObjB" src="{{pics}}"></img>  
+		</div>  
+	</div>
+	<div class="col-md-6">
+		<h2 id="imageName_A">imageA</h2>
+	</div>
+	<div class="col-md-6"> 
+		<h2 id="imageName_B">imageB</h2>
+	</div>
+	
+	{% for detail in details %}
+	<div class="form-group col-md-12" name="chosen">
+		<label class="col-md-3">{{detail}}</label>
+	    <label class="radio-inline col-md-2">
+	      <input type="radio"  value=左边  name="{{detail}}">左边的略好
+	    </label>
+	    <label class="radio-inline col-md-2">
+	      <input type="radio"  value=右边  name="{{detail}}">右边的略好
+	    </label>
+	    <label class="radio-inline col-md-2">
+	      <input type="radio"  value=一致  name="{{detail}}" checked>一致
+	    </label>
+	</div>
+	{% endfor %}
+	
+	<div class="form-group col-md-12">
+		<button type="submit" class="col-md-1" onclick="getLastpic()">上一页</button>
+		<button type="submit" class="col-md-1" onclick="getNextpic()">下一页</button>
+	</div>
+	
+	
+</div> 
+</div>   
+</div>
+</body>

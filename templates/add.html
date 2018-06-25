@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% macro render_field(field) %}
+<tr>
+  <td>{{ field.label }}</td>
+  <td>{{ field(**kwargs)|safe }}</td>
+  <td>{% if field.errors %}
+    <ul class=errors>
+    {% for error in field.errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+  </td>
+</tr>
+{% endmacro %}
+
+{% block add_content %}
+<p><a href ="{{ url_for('task')}}">返回任务页面</a></p>
+<h1>创建任务</h1>
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <table class='table-bordered'>
+    {{ render_field(form.taskTemplate)}}
+    {{ render_field(form.picList)}}
+    {{ render_field(form.taskName)}}
+    {{ render_field(form.users) }}
+    </table>
+    {{ form.submit() }}
+</form>
+<span style="color: red">
+    {% for message in get_flashed_messages() %}  
+        {{ message }}  
+    {% endfor %}   
+ </span>
+{% endblock %}

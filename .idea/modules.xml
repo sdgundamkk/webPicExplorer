@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/../AutoTest/.idea/AutoTest.iml" filepath="$PROJECT_DIR$/../AutoTest/.idea/AutoTest.iml" />
+      <module fileurl="file://$PROJECT_DIR$/../NewProject/.idea/NewProject.iml" filepath="$PROJECT_DIR$/../NewProject/.idea/NewProject.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/PairWise.iml" filepath="$PROJECT_DIR$/.idea/PairWise.iml" />
+    </modules>
+  </component>
+</project>
